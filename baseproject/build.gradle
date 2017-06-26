@@ -22,7 +22,6 @@ android {
         versionName gConfig["versionName"]
         testInstrumentationRunner gConfig.testDependencies.androidJUnitRunner
 
-
         // 友盟三方key配置
         manifestPlaceholders = [
                 TECENT_APPID: 1105978541,
@@ -151,6 +150,8 @@ dependencies {
     testCompile testDependencies.multidexTest
     //分包
     compile dataDependences.multidex
+    // project
+    compile project(":mysnackbar")
 
 }
 

@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baseproject" />
+            <option value="$PROJECT_DIR$/mysnackbar" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
