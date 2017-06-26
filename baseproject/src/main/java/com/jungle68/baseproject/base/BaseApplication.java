@@ -5,12 +5,17 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.jungle68.baseproject.BuildConfig;
+import com.jungle68.baseproject.config.UmengConfig;
 import com.jungle68.baseproject.dagger.module.AppModule;
 import com.jungle68.baseproject.dagger.module.HttpClientModule;
 import com.jungle68.baseproject.net.listener.RequestInterceptListener;
+import com.jungle68.baseproject.utils.CrashHandler;
+import com.jungle68.baseproject.utils.LanguageUtils;
 import com.jungle68.baseproject.utils.LogUtils;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.socialize.PlatformConfig;
 
 import java.util.Set;
 
@@ -25,6 +30,13 @@ import okhttp3.Interceptor;
  * @Contact master.jungle68@gmail.com
  */
 public abstract class BaseApplication extends Application {
+
+    static {
+        PlatformConfig.setQQZone(UmengConfig.QQ_APPID, UmengConfig.QQ_SECRETKEY);
+        PlatformConfig.setWeixin(UmengConfig.WEIXIN_APPID, UmengConfig.WEIXIN_SECRETKEY);
+        PlatformConfig.setSinaWeibo(UmengConfig.SINA_APPID, UmengConfig.SINA_SECRETKEY, UmengConfig.SINA_RESULT_RUL);
+    }
+
     protected final String TAG = this.getClass().getSimpleName();
 
     private static BaseApplication mApplication;
@@ -58,7 +70,13 @@ public abstract class BaseApplication extends Application {
                 .sslSocketFactory(getSSLSocketFactory())
                 .build();
         this.mAppModule = new AppModule(this);// 提供 application
-
+        // 友盟
+        MobclickAgent.setDebugMode(BuildConfig.DEBUG);
+        // 处理app崩溃异常
+        CrashHandler crashHandler = CrashHandler.getInstance(this);
+        crashHandler.init();
+        // 语言支持
+        LanguageUtils.changeAppLanguage(getContext(), LanguageUtils.getAppLocale(getContext()));
     }
 
     @Override

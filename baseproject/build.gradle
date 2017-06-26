@@ -21,6 +21,13 @@ android {
         versionCode gConfig["versionCode"]
         versionName gConfig["versionName"]
         testInstrumentationRunner gConfig.testDependencies.androidJUnitRunner
+
+
+        // 友盟三方key配置
+        manifestPlaceholders = [
+                TECENT_APPID: 1105978541,
+                UMENG_APPKEY: "594221af4ad1560587001c9d",
+        ]
     }
     buildTypes { // 作为libary时只会触发 relase
         release {
@@ -132,6 +139,8 @@ dependencies {
     annotationProcessor dataDependences.butterknifeApt
     // Log
     compile dataDependences.logger
+    // umeng
+    compile dataDependences.umeng
 
     // Development
     debugCompile developmentDependencies.leakCanaryDebug
