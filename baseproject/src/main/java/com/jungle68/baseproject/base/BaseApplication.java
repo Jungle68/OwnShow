@@ -5,13 +5,12 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.jungle68.baseproject.BuildConfig;
+import com.jungle68.baseproject.dagger.module.AppModule;
+import com.jungle68.baseproject.dagger.module.HttpClientModule;
+import com.jungle68.baseproject.net.listener.RequestInterceptListener;
+import com.jungle68.baseproject.utils.LogUtils;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
-import com.zhiyicx.common.dagger.module.AppModule;
-import com.zhiyicx.common.dagger.module.HttpClientModule;
-import com.zhiyicx.common.net.listener.RequestInterceptListener;
-import com.zhiyicx.common.utils.log.LogUtils;
-import com.zhiyicx.rxerrorhandler.listener.ResponseErroListener;
 
 import java.util.Set;
 
@@ -56,7 +55,6 @@ public abstract class BaseApplication extends Application {
                 .baseurl(getBaseUrl())
                 .globeHttpHandler(getHttpHandler())
                 .interceptors(getInterceptors())
-                .responseErroListener(getResponseErroListener())
                 .sslSocketFactory(getSSLSocketFactory())
                 .build();
         this.mAppModule = new AppModule(this);// 提供 application
@@ -124,23 +122,6 @@ public abstract class BaseApplication extends Application {
         return null;
     }
 
-
-    /**
-     * 用来提供处理所有错误的监听
-     * 如果要使用 ErrorHandleSubscriber (默认实现 Subscriber 的 onError 方法)
-     * 则让子 application 重写此方法
-     *
-     * @return
-     */
-    protected ResponseErroListener getResponseErroListener() {
-        return new ResponseErroListener() {
-
-            @Override
-            public void handleResponseError(Context context, Throwable throwable) {
-
-            }
-        };
-    }
 
     /**
      * 提供SSlFactory

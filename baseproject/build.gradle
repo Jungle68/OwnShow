@@ -121,7 +121,8 @@ dependencies {
     compile dataDependences.rxbindingDesignrRcyclerviewV7
     compile dataDependences.clickSpanLink // click span
     compile dataDependences.gson
-
+    compile dataDependences.rxcache
+    compile dataDependences.rxcacheJolyglotGson
     // database
     compile dataDependences.greendao
     compile dataDependences.greendaoSqlcipher
@@ -129,6 +130,8 @@ dependencies {
     // Butterknife
     compile dataDependences.butterknife
     annotationProcessor dataDependences.butterknifeApt
+    // Log
+    compile dataDependences.logger
 
     // Development
     debugCompile developmentDependencies.leakCanaryDebug
@@ -140,6 +143,5 @@ dependencies {
     //分包
     compile dataDependences.multidex
 
-    compile 'com.android.support:support-core-ui:25.1.0'
 }
 
