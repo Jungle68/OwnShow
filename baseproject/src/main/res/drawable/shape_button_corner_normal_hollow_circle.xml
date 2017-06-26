@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+
+    <!-- 纯色 -->
+    <stroke android:color="@color/bt_normal"/>
+    <corners
+        android:radius="@dimen/button_corner_circle"
+        />
+    <size
+        android:width="@dimen/button_with_normal"
+        android:height="@dimen/button_height_normal"
+        />
+</shape>

@@ -102,6 +102,8 @@ dependencies {
     compile sdkSoupportDependences.appcompatV7
     compile sdkSoupportDependences.rxpermissions
     compile sdkSoupportDependences.annotations
+    // baseAdapter
+    compile dataDependences.baseAdapter
     // Image
     compile dataDependences.glide
     // Eventbus

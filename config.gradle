@@ -120,8 +120,9 @@ ext {
             stickyheaders                : 'org.zakariya.stickyheaders:stickyheaders:0.7.6',
 
             skin                         : 'skin.support:skin-support:1.2.7',         // skin-support 基础控件支持
-            skin_design                  : 'skin.support:skin-support-design:1.2.4',   // skin-support-design material design 控件支持[可选]
-            skin_cardveiw                : 'skin.support:skin-support-cardview:1.2.0', // skin-support-cardview CardView 控件支持[可选]
+            skinDesign                  : 'skin.support:skin-support-design:1.2.4',   // skin-support-design material design 控件支持[可选]
+            skinCardveiw                : 'skin.support:skin-support-cardview:1.2.0', // skin-support-cardview CardView 控件支持[可选]
+            baseAdapter                  : 'com.zhy:base-rvadapter:3.0.3'
     ]
     sdksoupportDependencies = [
             constraint_layout: 'com.android.support.constraint:constraint-layout:1.0.2',

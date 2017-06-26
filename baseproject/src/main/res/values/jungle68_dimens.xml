@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--toolbar-->
+    <dimen name="toolbar_height">44dp</dimen>
+    <dimen name="statusbar_height">24dp</dimen>
+    <dimen name="toolbar_height_include_line_height">44.5dp</dimen>
+    <dimen name="toolbar_and_statusbar_height">68dp</dimen>
+    <dimen name="toolbar_padding_left">15dp</dimen>
+    <dimen name="toolbar_padding_right">15dp</dimen>
+    <dimen name="toolbar_center_margin">100dp</dimen>
+    <dimen name="toolbar_left_text_size">@dimen/size_sub_title</dimen>
+    <dimen name="toolbar_center_text_size">@dimen/size_primary_title</dimen>
+    <dimen name="toolbar_right_text_size">@dimen/size_sub_title</dimen>
+    <!-- custom navigationbar -->
+    <dimen name="custom_navigationbar_height">48dp</dimen>
+    <dimen name="edit_line_height">55dp</dimen>
+    <!--可操作按钮列表高度-->
+    <dimen name="action_button_list_item_height">45dp</dimen>
+    <!--进度条高度-->
+    <dimen name="pb_height">2dp</dimen>
+    <!-- 光标宽度 -->
+    <dimen name="cursor_with">1dp</dimen>
+</resources>

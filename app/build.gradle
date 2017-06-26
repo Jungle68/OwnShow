@@ -41,7 +41,8 @@ dependencies {
 
     // Data dependencies
     compile dataDependences.skin
-    compile dataDependences.skin_design
-    compile dataDependences.skin_cardveiw
-
+    compile dataDependences.skinDesign
+    compile dataDependences.skinCardveiw
+    // Test
+    testCompile testDependences.junit
 }
