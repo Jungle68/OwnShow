@@ -114,8 +114,8 @@ ext {
             TriangleLabelView            : 'com.github.shts:TriangleLabelView:1.1.2',
 
             //kotlin
-            kotlin_version               : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
-            anko_version                 : "org.jetbrains.anko:anko-common:$anko_version",
+            kotlinVersion               : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            ankoVersion                 : "org.jetbrains.anko:anko-common:$anko_version",
             jpinyin                      : 'com.github.SilenceDut:jpinyin:v1.0',
             stickyheaders                : 'org.zakariya.stickyheaders:stickyheaders:0.7.6',
 
@@ -125,7 +125,7 @@ ext {
             baseAdapter                  : 'com.zhy:base-rvadapter:3.0.3'
     ]
     sdksoupportDependencies = [
-            constraint_layout: 'com.android.support.constraint:constraint-layout:1.0.2',
+            constraintLayout: 'com.android.support.constraint:constraint-layout:1.0.2',
             appcompatV7      : "com.android.support:appcompat-v7:${androidSupportSdkVersion}",
             paletteV7        : "com.android.support:palette-v7:${androidSupportSdkVersion}",
             supportV4        : "com.android.support:support-v4:${androidSupportSdkVersion}",

@@ -31,16 +31,16 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(":baseproject")
+    compile project(":tspay")
 
     def testDependences = rootProject.ext.testDependencies
     def dataDependences = rootProject.ext.dataDependencies
     def sdkSoupportDependences = rootProject.ext.sdksoupportDependencies
     def developmentDependencies = rootProject.ext.developmentDependencies
     // Sdksoupport dependencies
-    compile sdkSoupportDependences.constraint_layout
+    compile sdkSoupportDependences.constraintLayout
 
     // Data dependencies
-    compile dataDependences.skin
     compile dataDependences.skinDesign
     compile dataDependences.skinCardveiw
     // Test

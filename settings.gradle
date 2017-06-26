@@ -1,1 +1,1 @@
-include ':app', ':baseproject', ':mysnackbar'
+include ':app', ':baseproject', ':mysnackbar', ':tspay'

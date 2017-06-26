@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.jungle68.baseproject.BuildConfig;
+import com.jungle68.baseproject.config.PayConfig;
 import com.jungle68.baseproject.config.UmengConfig;
 import com.jungle68.baseproject.dagger.module.AppModule;
 import com.jungle68.baseproject.dagger.module.HttpClientModule;
@@ -16,12 +17,9 @@ import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
-
-import java.util.Set;
+import com.zhiyicx.tspay.TSPayClient;
 
 import javax.net.ssl.SSLSocketFactory;
-
-import okhttp3.Interceptor;
 
 /**
  * @Describe the base for application
@@ -48,6 +46,7 @@ public abstract class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        initAppDaggerComponent();
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
@@ -66,7 +65,6 @@ public abstract class BaseApplication extends Application {
                 .buidler()
                 .baseurl(getBaseUrl())
                 .globeHttpHandler(getHttpHandler())
-                .interceptors(getInterceptors())
                 .sslSocketFactory(getSSLSocketFactory())
                 .build();
         this.mAppModule = new AppModule(this);// 提供 application
@@ -77,13 +75,22 @@ public abstract class BaseApplication extends Application {
         crashHandler.init();
         // 语言支持
         LanguageUtils.changeAppLanguage(getContext(), LanguageUtils.getAppLocale(getContext()));
+        // 支付
+        TSPayClient.init(this, PayConfig.WX_APP_ID);
+
     }
+
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
     }
+
+    /**
+     * dagger 构建
+     */
+    protected abstract void initAppDaggerComponent() ;
 
     /**
      * 提供基础 url 给 retrofit
@@ -127,26 +134,12 @@ public abstract class BaseApplication extends Application {
      *
      * @return
      */
-    protected RequestInterceptListener getHttpHandler() {
-        return null;
-    }
-
-    /**
-     * 用来提供 interceptor,如果要提供额外的 interceptor 可以让子 application 实现此方法
-     *
-     * @return
-     */
-    protected Set<Interceptor> getInterceptors() {
-        return null;
-    }
-
+    protected abstract RequestInterceptListener getHttpHandler();
 
     /**
      * 提供SSlFactory
      */
-    protected SSLSocketFactory getSSLSocketFactory() {
-        return null;
-    }
+    protected abstract SSLSocketFactory getSSLSocketFactory();
 
     /**
      * 返回上下文
@@ -156,6 +149,7 @@ public abstract class BaseApplication extends Application {
     public static Context getContext() {
         return mApplication;
     }
+
 
 
 }

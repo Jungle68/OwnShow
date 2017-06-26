@@ -138,6 +138,11 @@ dependencies {
     // Butterknife
     compile dataDependences.butterknife
     annotationProcessor dataDependences.butterknifeApt
+    // skin
+    compile dataDependences.skin
+    // kotlin
+    compile dataDependences.kotlinVersion
+    compile dataDependences.ankoVersion
     // Log
     compile dataDependences.logger
     // umeng
@@ -154,6 +159,7 @@ dependencies {
     compile dataDependences.multidex
     // project
     compile project(":mysnackbar")
-
+    // project
+    compile project(":tspay")
 }
 
