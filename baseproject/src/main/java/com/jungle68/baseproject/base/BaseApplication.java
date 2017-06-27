@@ -22,6 +22,8 @@ import com.zhiyicx.tspay.TSPayClient;
 import javax.net.ssl.SSLSocketFactory;
 
 import skin.support.SkinCompatManager;
+import skin.support.app.SkinCardViewInflater;
+import skin.support.design.app.SkinMaterialViewInflater;
 
 /**
  * @Describe the base for application
@@ -79,7 +81,10 @@ public abstract class BaseApplication extends Application {
         // 支付
         TSPayClient.init(this, PayConfig.WX_APP_ID);
         // 换肤支持
-        SkinCompatManager.init(this).loadSkin();
+        SkinCompatManager.init(this)                          // 基础控件换肤初始化
+                .addInflater(new SkinMaterialViewInflater())  // material design 控件换肤初始化[可选]
+                .addInflater(new SkinCardViewInflater())      // CardView 控件换肤初始化[可选]
+                .loadSkin();
         // 初始化 Application Dagger
         initAppDaggerComponent();
     }

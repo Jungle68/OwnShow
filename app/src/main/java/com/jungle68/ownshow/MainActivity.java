@@ -2,20 +2,27 @@ package com.jungle68.ownshow;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.jungle68.baseproject.base.BaseActivity;
 
+import butterknife.BindView;
+import skin.support.SkinCompatManager;
+import skin.support.utils.SkinPreference;
+
+
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    @BindView(R.id.cl_container)
+    View mContianer;
 
     @Override
     protected int getLayoutId() {
@@ -41,8 +48,11 @@ public class MainActivity extends BaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if (TextUtils.isEmpty(SkinPreference.getInstance().getSkinName())) {
+                    SkinCompatManager.getInstance().loadSkin("night.skin2", null);
+                } else {
+                    SkinCompatManager.getInstance().restoreDefaultTheme();
+                }
             }
         });
 
@@ -54,6 +64,7 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override

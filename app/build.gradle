@@ -6,6 +6,7 @@ android {
     compileSdkVersion gConfig["compileSdkVersion"]
     buildToolsVersion gConfig["buildToolsVersion"]
     defaultConfig {
+        applicationId gConfig["applicationId"]
         minSdkVersion gConfig["minSdkVersion"]
         targetSdkVersion gConfig["targetSdkVersion"]
         versionCode gConfig["versionCode"]
@@ -84,8 +85,6 @@ dependencies {
     compile sdkSoupportDependences.constraintLayout
 
     // Data dependencies
-    compile dataDependences.skinDesign
-    compile dataDependences.skinCardveiw
     // Test
     testCompile testDependences.junit
     // database
@@ -96,5 +95,8 @@ dependencies {
     provided dataDependences.javaxAnnotation
     provided dataDependences.daggerCompiler
     annotationProcessor dataDependences.daggerCompiler
+
+    compile dataDependences.butterknife
+    annotationProcessor dataDependences.butterknifeCompiler
 
 }
