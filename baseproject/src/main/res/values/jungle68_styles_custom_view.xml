@@ -91,5 +91,13 @@
         <item name="android:visibility">gone</item>
     </style>
 
+    <!--#########################################      加载样式       ################################-->
 
+    <!-- 加载滚动条样式 -->
+    <style name="style_loading">
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateDrawable">@drawable/frame_loading_grey</item>
+        <item name="android:indeterminateDuration">500</item>
+        <item name="android:indeterminateOnly">true</item>
+    </style>
 </resources>

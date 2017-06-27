@@ -18,9 +18,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.jakewharton.rxbinding.view.RxView;
+import com.jungle68.baseproject.BuildConfig;
 import com.jungle68.baseproject.R;
 import com.jungle68.baseproject.utils.FileUtils;
 import com.jungle68.baseproject.utils.NetUtils;
+import com.jungle68.baseproject.widget.EmptyView;
+import com.wcy.overscroll.OverScrollLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,10 +35,9 @@ import java.util.regex.Pattern;
 import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.subscriptions.CompositeSubscription;
 
-import static com.umeng.socialize.utils.DeviceConfig.context;
+import static com.jungle68.baseproject.config.ConstantConfig.JITTER_SPACING_TIME;
 
 /**
  * @Describe H5 基类
@@ -245,12 +247,7 @@ public abstract class BaseWebFragment extends BaseFragment {
         RxView.clicks(mCloseView)
                 .throttleFirst(JITTER_SPACING_TIME, TimeUnit.SECONDS)   //两秒钟之内只取一个点击事件，防抖操作
                 .compose(this.<Void>bindToLifecycle())
-                .subscribe(new Action1<Void>() {
-                    @Override
-                    public void call(Void aVoid) {
-                        getActivity().finish();
-                    }
-                });
+                .subscribe(aVoid -> getActivity().finish());
     }
 
     @Override
@@ -283,12 +280,9 @@ public abstract class BaseWebFragment extends BaseFragment {
         RxView.clicks(mEmptyView)
                 .throttleFirst(JITTER_SPACING_TIME, TimeUnit.SECONDS)   // 两秒钟之内只取一个点击事件，防抖操作
                 .compose(this.<Void>bindToLifecycle())
-                .subscribe(new Action1<Void>() {
-                    @Override
-                    public void call(Void aVoid) {
-                        mWebView.clearCache(true);
-                        mWebView.reload();
-                    }
+                .subscribe(aVoid -> {
+                    mWebView.clearCache(true);
+                    mWebView.reload();
                 });
         mOverScrollLayout = (OverScrollLayout) rootView.findViewById(R.id.overscroll);
 //        if(mOverScrollLayout !=null){// 是否需要下拉
@@ -321,7 +315,7 @@ public abstract class BaseWebFragment extends BaseFragment {
         mWebSettings.setJavaScriptEnabled(true);
 
         // 载入 js
-        mWebView.addJavascriptInterface(new JavascriptInterfaceForImageClick(context), "imageListener");
+        mWebView.addJavascriptInterface(new JavascriptInterfaceForImageClick(getContext()), "imageListener");
         // 获取 html
         mWebView.addJavascriptInterface(new JavaScriptForHandleHtml(), "handleHtml");
 
@@ -329,12 +323,9 @@ public abstract class BaseWebFragment extends BaseFragment {
         newWin(mWebSettings);
         mWebView.setWebChromeClient(mWebChromeClient);
         mWebView.setWebViewClient(mWebViewClient);
-        mWebView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                setWebImageLongClickListener(v);
-                return false;
-            }
+        mWebView.setOnLongClickListener(v -> {
+            setWebImageLongClickListener(v);
+            return false;
         });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && BuildConfig.DEBUG) {  // chorme 调试
@@ -356,13 +347,10 @@ public abstract class BaseWebFragment extends BaseFragment {
         mCompositeSubscription = new CompositeSubscription();
         subscription = Observable.interval(0, 20, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Long>() {
-                    @Override
-                    public void call(Long newProgress) {
-                        mProgressBar.setProgress(newProgress.intValue());
-                        if (newProgress == DEFALUT_SHOW_PROGRESS) {
-                            rxUnsub();
-                        }
+                .subscribe(newProgress -> {
+                    mProgressBar.setProgress(newProgress.intValue());
+                    if (newProgress == DEFALUT_SHOW_PROGRESS) {
+                        rxUnsub();
                     }
                 });
         mCompositeSubscription.add(subscription);

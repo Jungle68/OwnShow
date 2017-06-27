@@ -4,9 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.zhiyicx.baseproject.base.TSWebFragment;
-import com.zhiyicx.baseproject.config.ApiConfig;
-import com.zhiyicx.thinksnsplus.R;
+import com.jungle68.baseproject.base.BaseWebFragment;
+import com.jungle68.ownshow.R;
 
 import java.util.List;
 
@@ -15,14 +14,14 @@ import java.util.List;
  * @Describe 关于我们
  * @Author Jungle68
  * @Date 2017/1/10
- * @Contact master.jungle68@gmail.com
+ * @Contact master.jungle68@l.com
  */
 
-public class CustomWEBFragment extends TSWebFragment {
+public class CustomWEBFragment extends BaseWebFragment {
     public static final String BUNDLE_PARAMS_WEB_URL = "web_url";
     public static final String BUNDLE_PARAMS_WEB_TITLE = "web_title";
 
-    private String mUrl = ApiConfig.URL_ABOUT_US;
+    private String mUrl = "http://www.baidu.com";
     private String mTitle = "";
 
     public CustomWEBFragment() {
@@ -40,7 +39,7 @@ public class CustomWEBFragment extends TSWebFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mTitle = getString(R.string.about_us);
+        mTitle = getString(R.string.app_name);
         if (getArguments() != null) {
             mUrl = getArguments().getString(BUNDLE_PARAMS_WEB_URL);
             mTitle = getArguments().getString(BUNDLE_PARAMS_WEB_TITLE);

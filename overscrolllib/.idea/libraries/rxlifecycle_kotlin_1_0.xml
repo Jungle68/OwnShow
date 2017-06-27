@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="rxlifecycle-kotlin-1.0">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../common/build/intermediates/exploded-aar/com.trello/rxlifecycle-kotlin/1.0/res" />
+      <root url="jar://$PROJECT_DIR$/../common/build/intermediates/exploded-aar/com.trello/rxlifecycle-kotlin/1.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.trello/rxlifecycle-kotlin/1.0/4f883c05627dfdce0f4c886f8a1d2e6182b6f8a9/rxlifecycle-kotlin-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

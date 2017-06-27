@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../CallKit/CallKit.iml" filepath="$PROJECT_DIR$/../CallKit/CallKit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../CallLib/CallLib.iml" filepath="$PROJECT_DIR$/../CallLib/CallLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Guduk-Android.iml" filepath="$PROJECT_DIR$/../Guduk-Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../IMKit/IMKit.iml" filepath="$PROJECT_DIR$/../IMKit/IMKit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../IMLib/IMLib.iml" filepath="$PROJECT_DIR$/../IMLib/IMLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PhotoPicker/PhotoPicker.iml" filepath="$PROJECT_DIR$/../PhotoPicker/PhotoPicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../RedPacket/RedPacket.iml" filepath="$PROJECT_DIR$/../RedPacket/RedPacket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../app/app.iml" filepath="$PROJECT_DIR$/../app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../banner/banner.iml" filepath="$PROJECT_DIR$/../banner/banner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../baseadapter-recyclerview/baseadapter-recyclerview.iml" filepath="$PROJECT_DIR$/../baseadapter-recyclerview/baseadapter-recyclerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../baseproject/baseproject.iml" filepath="$PROJECT_DIR$/../baseproject/baseproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../bookreader/bookreader.iml" filepath="$PROJECT_DIR$/../bookreader/bookreader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../common/common.iml" filepath="$PROJECT_DIR$/../common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../imsdk/imsdk.iml" filepath="$PROJECT_DIR$/../imsdk/imsdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../jrmfwalletlib/jrmfwalletlib.iml" filepath="$PROJECT_DIR$/../jrmfwalletlib/jrmfwalletlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../media-cache/media-cache.iml" filepath="$PROJECT_DIR$/../media-cache/media-cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../mysnackbar/mysnackbar.iml" filepath="$PROJECT_DIR$/../mysnackbar/mysnackbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/overscrolllib.iml" filepath="$PROJECT_DIR$/overscrolllib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../pickerview/pickerview.iml" filepath="$PROJECT_DIR$/../pickerview/pickerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rxerrorhandler/rxerrorhandler.iml" filepath="$PROJECT_DIR$/../rxerrorhandler/rxerrorhandler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../skinlibrary/skinlibrary.iml" filepath="$PROJECT_DIR$/../skinlibrary/skinlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tspay/tspay.iml" filepath="$PROJECT_DIR$/../tspay/tspay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ucrop/ucrop.iml" filepath="$PROJECT_DIR$/../ucrop/ucrop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../zxing/zxing.iml" filepath="$PROJECT_DIR$/../zxing/zxing.iml" />
+    </modules>
+  </component>
+</project>

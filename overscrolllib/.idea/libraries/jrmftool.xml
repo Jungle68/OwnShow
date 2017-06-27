@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jrmftool">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../app/src/main/libs/jrmftool.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

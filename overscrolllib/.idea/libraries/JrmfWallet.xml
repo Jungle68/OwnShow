@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JrmfWallet">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../app/src/main/libs/JrmfWallet.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -10,11 +10,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/themeColor">
+       >
 
         <LinearLayout
+            android:background="@color/themeColor"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <!--认证-->
@@ -22,7 +23,6 @@
                 android:id="@+id/bt_set_vertify"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/full_button_height"
-                android:visibility="gone"
                 app:leftText="@string/action_settings"
                 app:leftTextLeftPadding="@dimen/spacing_mid"
                 app:rightImage="@mipmap/ic_launcher"/>

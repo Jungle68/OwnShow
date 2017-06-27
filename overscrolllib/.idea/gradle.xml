@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/.." />
+            <option value="$PROJECT_DIR$/../CallKit" />
+            <option value="$PROJECT_DIR$/../CallLib" />
+            <option value="$PROJECT_DIR$/../IMKit" />
+            <option value="$PROJECT_DIR$/../IMLib" />
+            <option value="$PROJECT_DIR$/../PhotoPicker" />
+            <option value="$PROJECT_DIR$/../RedPacket" />
+            <option value="$PROJECT_DIR$/../app" />
+            <option value="$PROJECT_DIR$/../banner" />
+            <option value="$PROJECT_DIR$/../baseadapter-recyclerview" />
+            <option value="$PROJECT_DIR$/../baseproject" />
+            <option value="$PROJECT_DIR$/../bookreader" />
+            <option value="$PROJECT_DIR$/../common" />
+            <option value="$PROJECT_DIR$/../imsdk" />
+            <option value="$PROJECT_DIR$/../jrmfwalletlib" />
+            <option value="$PROJECT_DIR$/../media-cache" />
+            <option value="$PROJECT_DIR$/../mysnackbar" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/../pickerview" />
+            <option value="$PROJECT_DIR$/../rxerrorhandler" />
+            <option value="$PROJECT_DIR$/../skinlibrary" />
+            <option value="$PROJECT_DIR$/../tspay" />
+            <option value="$PROJECT_DIR$/../ucrop" />
+            <option value="$PROJECT_DIR$/../zxing" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

@@ -143,5 +143,7 @@ dependencies {
     compile project(":mysnackbar")
     // project
     compile project(":tspay")
+    // over scroll
+    compile project(":overscrolllib")
 }
 
