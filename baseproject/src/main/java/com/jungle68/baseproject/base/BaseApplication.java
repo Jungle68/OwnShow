@@ -21,6 +21,8 @@ import com.zhiyicx.tspay.TSPayClient;
 
 import javax.net.ssl.SSLSocketFactory;
 
+import skin.support.SkinCompatManager;
+
 /**
  * @Describe the base for application
  * @Author Jungle68
@@ -46,7 +48,6 @@ public abstract class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        initAppDaggerComponent();
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
@@ -77,7 +78,10 @@ public abstract class BaseApplication extends Application {
         LanguageUtils.changeAppLanguage(getContext(), LanguageUtils.getAppLocale(getContext()));
         // 支付
         TSPayClient.init(this, PayConfig.WX_APP_ID);
-
+        // 换肤支持
+        SkinCompatManager.init(this).loadSkin();
+        // 初始化 Application Dagger
+        initAppDaggerComponent();
     }
 
 

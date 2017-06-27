@@ -28,6 +28,11 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
+    protected boolean isNeedFragment() {
+        return false;
+    }
+
+    @Override
     protected void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

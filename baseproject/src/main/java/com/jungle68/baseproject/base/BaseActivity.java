@@ -57,14 +57,20 @@ public abstract class BaseActivity<P extends BasePresenter, F extends Fragment> 
         setContentView(getLayoutId());
         // 绑定到 butterknife
         mUnbinder = ButterKnife.bind(this);
-        // 添加fragment
-        mContanierFragment = getFragment();
-        ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), mContanierFragment, R.id.fl_fragment_container);
+        if (isNeedFragment()) {
+            // 添加fragment
+            mContanierFragment = getFragment();
+            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), mContanierFragment, R.id.fl_fragment_container);
+        }
         initView();
         componentInject();// 依赖注入，必须放在initview后，否者
         initData();
         // 语言支持
-        LanguageUtils.changeAppLanguage(getApplicationContext(),LanguageUtils.getAppLocale(getApplicationContext() ));
+        LanguageUtils.changeAppLanguage(getApplicationContext(), LanguageUtils.getAppLocale(getApplicationContext()));
+    }
+
+    protected boolean isNeedFragment() {
+        return true;
     }
 
     protected int getLayoutId() {
@@ -117,6 +123,7 @@ public abstract class BaseActivity<P extends BasePresenter, F extends Fragment> 
      * 数据初始化
      */
     protected abstract void initData();
+
     /**
      * @return 当前页的Fragment
      */
@@ -127,7 +134,8 @@ public abstract class BaseActivity<P extends BasePresenter, F extends Fragment> 
      *
      * @param savedInstanceState
      */
-    protected void restoreData(Bundle savedInstanceState) {}
+    protected void restoreData(Bundle savedInstanceState) {
+    }
 
     /**
      * 关闭时保存数据

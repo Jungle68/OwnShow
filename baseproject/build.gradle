@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'jacoco' //测试报告
 apply from: "$rootDir/jacocoCoverage.gradle"
 apply plugin: 'me.tatarka.retrolambda'
@@ -60,25 +59,10 @@ buildscript {
         maven { url "https://jitpack.io" }
     }
     dependencies {
-        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.6.0'
         classpath 'me.tatarka:gradle-retrolambda:3.6.1'
     }
 }
-
-greendao {
-    /**
-     * daoPackage 生成的DAO，DaoMaster和DaoSession的包名。默认是实体的包名。
-     * targetGenDir 生成源文件的路径。默认源文件目录是在build目录中的(build/generated/source/greendao)。
-     * generateTests 设置是否自动生成单元测试。
-     * targetGenDirTest 生成的单元测试的根目录。
-     */
-    schemaVersion 1
-//    daoPackage 'com.jungle68.ownshow.bean'
-    generateTests true
-    //targetGenDir 'src/main/java'
-}
-
 
 configurations.all {
     resolutionStrategy {
@@ -131,9 +115,6 @@ dependencies {
     compile dataDependences.gson
     compile dataDependences.rxcache
     compile dataDependences.rxcacheJolyglotGson
-    // database
-    compile dataDependences.greendao
-    compile dataDependences.greendaoSqlcipher
 
     // Butterknife
     compile dataDependences.butterknife

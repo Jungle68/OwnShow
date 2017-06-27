@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     def gConfig = rootProject.extensions.getByName("ext")
@@ -21,11 +22,53 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
     lintOptions {
+        quiet true
         abortOnError false
+        ignoreWarnings true
+        abortOnError false
+        disable "ResourceType"
+        disable 'InvalidPackage'            //Some libraries have issues with this.
+        disable 'OldTargetApi'
+        //Lint gives this warning but SDK 20 would be Android L Beta.
+        disable 'IconDensities'             //For testing purpose. This is safe to remove.
+        disable 'IconMissingDensityFolder'  //For testing purpose. This is safe to remove.
         // if true, only report errors.
         ignoreWarnings true
+        lintConfig file("lint.xml")
     }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+    dexOptions {
+        dexInProcess true
+        preDexLibraries true
+        javaMaxHeapSize "6g"//越大越好
+    }
+}
+
+greendao {
+    /**
+     * daoPackage 生成的DAO，DaoMaster和DaoSession的包名。默认是实体的包名。
+     * targetGenDir 生成源文件的路径。默认源文件目录是在build目录中的(build/generated/source/greendao)。
+     * generateTests 设置是否自动生成单元测试。
+     * targetGenDirTest 生成的单元测试的根目录。
+     */
+    schemaVersion 1
+//    daoPackage 'com.jungle68.ownshow.bean'
+    generateTests true
+    //targetGenDir 'src/main/java'
 }
 
 dependencies {
@@ -45,4 +88,13 @@ dependencies {
     compile dataDependences.skinCardveiw
     // Test
     testCompile testDependences.junit
+    // database
+    compile dataDependences.greendao
+    compile dataDependences.greendaoSqlcipher
+    // Dagger dependencies
+    compile dataDependences.dagger
+    provided dataDependences.javaxAnnotation
+    provided dataDependences.daggerCompiler
+    annotationProcessor dataDependences.daggerCompiler
+
 }

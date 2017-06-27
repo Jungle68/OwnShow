@@ -1,16 +1,12 @@
 package com.jungle68.ownshow.base;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
-import android.text.TextUtils;
 import android.view.KeyEvent;
 
-import com.google.gson.Gson;
 import com.jungle68.baseproject.base.BaseApplication;
 import com.jungle68.baseproject.net.HttpsSSLFactroyUtils;
 import com.jungle68.baseproject.net.listener.RequestInterceptListener;
@@ -107,7 +103,7 @@ public class AppApplication extends BaseApplication {
 
     @Override
     protected String getBaseUrl() {
-        return "www.baidu.com";
+        return "https://api.github.com/";
     }
 
 
@@ -136,14 +132,14 @@ public class AppApplication extends BaseApplication {
                 //如果需要再请求服务器之前做一些操作,则重新返回一个做过操作的的 requeat 如增加 header,不做操作则返回 request
 //                AuthBean authBean = mAuthRepository.getAuthBean();
 //                if (authBean != null) {
-                return chain.request().newBuilder()
-                        .header("Accept", "application/json")
-                        .header((request.url() + "").contains("v1") ? "ACCESS-TOKEN" : "Authorization", (request.url() + "").contains("v1") ? authBean.getToken() : " Bearer " + authBean.getToken())
-                        .build();
+//                return chain.request().newBuilder()
+//                        .header("Accept", "application/json")
+//                        .header((request.url() + "").contains("v1") ? "ACCESS-TOKEN" : "Authorization", (request.url() + "").contains("v1") ? authBean.getToken() : " Bearer " + authBean.getToken())
+//                        .build();
 //                } else {
-//                    return chain.request().newBuilder()
-//                            .header("Accept", "application/json")
-//                            .build();
+                    return chain.request().newBuilder()
+                            .header("Accept", "application/json")
+                            .build();
 //                }
             }
         };

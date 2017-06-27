@@ -1,9 +1,13 @@
 package com.jungle68.ownshow.base;
 
 
+import com.jungle68.ownshow.data.source.remote.CommonClient;
 
+import javax.inject.Singleton;
 
 import dagger.Module;
+import dagger.Provides;
+import retrofit2.Retrofit;
 
 
 /**
@@ -15,17 +19,17 @@ import dagger.Module;
 
 @Module
 public class ServiceModule {
-//    /**
-//     * 公用相关的网络接口
-//     *
-//     * @param retrofit 网络框架
-//     * @return
-//     */
-//    @Singleton
-//    @Provides
-//    CommonClient provideCommonService(Retrofit retrofit) {
-//        return retrofit.create(CommonClient.class);
-//    }
+    /**
+     * 公用相关的网络接口
+     *
+     * @param retrofit 网络框架
+     * @return
+     */
+    @Singleton
+    @Provides
+    CommonClient provideCommonService(Retrofit retrofit) {
+        return retrofit.create(CommonClient.class);
+    }
 //
 //    /**
 //     * 登录相关的网络接口

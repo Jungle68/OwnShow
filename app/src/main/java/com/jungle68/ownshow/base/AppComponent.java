@@ -37,5 +37,4 @@ public interface AppComponent extends InjectComponent<AppApplication> {
 
     OkHttpClient okHttpClient();
 
-
 }

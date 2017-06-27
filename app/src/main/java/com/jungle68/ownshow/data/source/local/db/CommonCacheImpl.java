@@ -1,10 +1,12 @@
-package com.jungle68.ownshow.data.source.db;
+package com.jungle68.ownshow.data.source.local.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.jungle68.baseproject.base.BaseApplication;
 import com.jungle68.baseproject.cache.IDataBaseOperate;
+import com.jungle68.ownshow.data.beans.DaoMaster;
+import com.jungle68.ownshow.data.beans.DaoSession;
 
 /**
  * @Describe

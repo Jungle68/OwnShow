@@ -1,8 +1,9 @@
-package com.jungle68.ownshow.data.source.db;
+package com.jungle68.ownshow.data.source.local.db;
 
 import android.content.Context;
 
 import com.jungle68.baseproject.utils.LogUtils;
+import com.jungle68.ownshow.data.beans.DaoMaster;
 
 import org.greenrobot.greendao.database.Database;
 
