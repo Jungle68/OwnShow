@@ -1,5 +1,6 @@
-package com.jungle68.ownshow;
+package com.jungle68.ownshow.modules.home;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -13,16 +14,15 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.jungle68.baseproject.base.BaseActivity;
+import com.jungle68.ownshow.R;
+import com.jungle68.ownshow.modules.settings.SettingsActivity;
 
-import butterknife.BindView;
 import skin.support.SkinCompatManager;
 import skin.support.utils.SkinPreference;
 
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    @BindView(R.id.cl_container)
-    View mContianer;
 
     @Override
     protected int getLayoutId() {
@@ -53,6 +53,7 @@ public class MainActivity extends BaseActivity
                 } else {
                     SkinCompatManager.getInstance().restoreDefaultTheme();
                 }
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             }
         });
 

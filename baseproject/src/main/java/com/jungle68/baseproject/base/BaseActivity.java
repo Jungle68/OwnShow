@@ -114,15 +114,14 @@ public abstract class BaseActivity<P extends BasePresenter, F extends Fragment> 
      */
     protected abstract void componentInject();
 
-    /**
-     * view 初始化
-     */
-    protected abstract void initView();
 
-    /**
-     * 数据初始化
-     */
-    protected abstract void initData();
+    protected void initView() {
+
+    }
+
+    protected void initData() {
+
+    }
 
     /**
      * @return 当前页的Fragment

@@ -1,0 +1,34 @@
+<com.wcy.overscroll.OverScrollLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/overscroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColor"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/themeColor">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--认证-->
+            <com.jungle68.baseproject.widget.button.CombinationButton
+                android:id="@+id/bt_set_vertify"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/full_button_height"
+                android:visibility="gone"
+                app:leftText="@string/action_settings"
+                app:leftTextLeftPadding="@dimen/spacing_mid"
+                app:rightImage="@mipmap/ic_launcher"/>
+            <!--修改密码-->
+
+
+        </LinearLayout>
+    </ScrollView>
+</com.wcy.overscroll.OverScrollLayout>

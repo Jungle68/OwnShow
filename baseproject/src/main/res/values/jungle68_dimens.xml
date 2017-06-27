@@ -20,4 +20,6 @@
     <dimen name="pb_height">2dp</dimen>
     <!-- 光标宽度 -->
     <dimen name="cursor_with">1dp</dimen>
+    <!--宽度为整个屏幕宽的按钮高度-->
+    <dimen name="full_button_height">50dp</dimen>
 </resources>
